@@ -68,8 +68,11 @@ XmRqcc <- function(x, title.X = "Individuals Chart", ylab.X = "Individuals", xla
 
 data <- read.csv("XRdata.csv", header = TRUE)
 
-# replace "test" with the TESTID value desired for analysis
-#test.data <- data[which(data$TESTID=="test"),]
+# For data files with MULTIPLE metrics:
+# replace "test" with the TESTID value desired for analysis, and uncomment the next line:
+# test.data <- data[which(data$TESTID=="test"),]
+
+# For multiple metrics, replace "x <- data$Dev"  with "x <- test.data$Dev" on next line:
 x <- data$Dev
 obj <- qcc(x, type = "xbar.one")
 
