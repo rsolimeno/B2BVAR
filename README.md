@@ -8,4 +8,4 @@ to evaluate the stability of the manufacturing process.  Different part numbers 
 target values for the same metric, and thus a "deviation" statistic (target - observation) is 
 calculated.  It is this deviation statistic that is charted.  Nominally the deviation "target" is equal
 to zero, and the LSL/USL are then established based on a stable process (in statistical control) to
-achieve a Cpk ov about 1.3 minimum (higher is better).
+achieve a Cpk of about 1.3 minimum (higher is better).
