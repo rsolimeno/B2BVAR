@@ -3,3 +3,4 @@
 *.RData
 *.pdf
 *.csv
+.Rproj.user
