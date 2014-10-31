@@ -39,22 +39,22 @@ XmRqcc <- function(x, title.X = "Individuals Chart", ylab.X = "Individuals", xla
   
   # Create a QCC object of type xbar.one (qcc's term for 
   # individuals charts) and plot the individuals graph.
-  i.X <- qcc(data=x, type="xbar.one", 
-             title=title.X, 
-             ylab=ylab.X, 
-             xlab=xlab.X, 
-             std.dev=c("MR"), ...)
+  i.X <- qcc(data = x, type="xbar.one", 
+             title = title.X, 
+             ylab = ylab.X, 
+             xlab = xlab.X, 
+             std.dev = c("MR"), ...)
   
-  i.adj <- matrix(nrow=length(x)-1, ncol=2)
+  i.adj <- matrix(nrow = length(x) - 1, ncol = 2)
   
-  i.adj[,1] <- x[1:(length(x)-1)]
-  i.adj[,2] <- x[2:length(x)]
+  i.adj[, 1] <- x[1:(length(x) - 1)]
+  i.adj[, 2] <- x[2:length(x)]
   
-  i.mR <- qcc(data=i.adj, type="R", 
-              title=title.mR, 
-              ylab=ylab.mR, 
-              xlab=xlab.mR,
-              std.dev=c("UWAVE-R"), ...)
+  i.mR <- qcc(data = i.adj, type = "R", 
+              title = title.mR, 
+              ylab = ylab.mR, 
+              xlab = xlab.mR,
+              std.dev = c("UWAVE-R"), ...)
   rval <- list(i.X, i.mR)
   return(rval)
 }
@@ -68,24 +68,24 @@ XmRqcc <- function(x, title.X = "Individuals Chart", ylab.X = "Individuals", xla
 
 data <- read.csv("B2BVAR.csv", header = TRUE)
 
-test.data <- data[which(data$TESTID=="ABS0.1"),]
+test.data <- data[which(data$TESTID == "ABS0.1"),]
 x <- test.data$Dev
 obj <- qcc(x, type = "xbar.one")
 
 
-qcc.options("cex.stats"=0.65)
-par(mfrow=c(2,2),
+qcc.options("cex.stats" = 0.65)
+par(mfrow = c(2, 2),
     cex.axis = 0.5,
     cex.lab = 0.75,
-    cex.main=0.95,
-    cex.sub=0.5)
+    cex.main = 0.95,
+    cex.sub = 0.5)
 
-XmRqcc(x, title.X="Individuals Chart - ABS0.1",
-       ylab.X="Inidviduals",
-       xlab.X="observation",
-       title.mR="Moving Range Chart - ABS0.1",
-       ylab.mR="Range", xlab.mR="Moving Range",
-       print=TRUE)
+XmRqcc(x, title.X = "Individuals Chart - ABS0.1",
+       ylab.X = "Inidviduals",
+       xlab.X = "observation",
+       title.mR = "Moving Range Chart - ABS0.1",
+       ylab.mR = "Range", xlab.mR = "Moving Range",
+       print = TRUE)
 
 
 xdbar <- mean(x)
@@ -98,8 +98,8 @@ speclimits <- c(LSL, USL)
 
 process.capability(obj,
                    speclimits,
-                   target=TARGET,
-                   print=TRUE)
+                   target = TARGET,
+                   print = TRUE)
 
 
 library(qualityTools)
